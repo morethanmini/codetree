@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int n = Integer.parseInt(st.nextToken());
+
+        for (int i=1; i<=5; i++) {
+            for (int j=0; j<i; j++) {
+                System.out.print("*"); 
+            }
+            System.out.println();
+            System.out.println();
+        }
+
+        for (int i=n; i>=1; i--) {
+            for (int j=0; j<i-1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+            System.out.println();
+        }
+
+
+    }
+}
