@@ -25,7 +25,7 @@ public class Main {
         }
 
         for(int i=0; i<a-1; i++) {
-            for(int j=0; j<a-i-2; j++) {
+            for(int j=2; j<a-i; j++) {
                 System.out.print("  ");
             }
 
