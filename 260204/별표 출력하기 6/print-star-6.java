@@ -1,51 +1,38 @@
 import java.io.*;
-import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        // Please write your code here.
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        int a = Integer.parseInt(br.readLine());
 
-        int a = Integer.parseInt(st.nextToken());
-        // int b = Integer.parseInt(st.nextToken());
+        int maxStar = 2 * a - 1;
 
-        for(int i=0; i<a; i++) {
-            for(int j=0; j<i; j++) {
+        // 위쪽 (감소)
+        for (int i = 0; i < a; i++) {
+            // 공백
+            for (int j = 0; j < i; j++) {
                 System.out.print("  ");
             }
 
-            for(int j=0; j<=(a-i*2)+2; j++) {
+            // 별
+            for (int j = 0; j < maxStar - 2 * i; j++) {
                 System.out.print("* ");
             }
-
             System.out.println();
-
-            
         }
 
-        for(int i=0; i<a-1; i++) {
-            for(int j=2; j<a-i; j++) {
+        // 아래쪽 (증가)
+        for (int i = a - 2; i >= 0; i--) {
+            // 공백
+            for (int j = 0; j < i; j++) {
                 System.out.print("  ");
             }
 
-            for(int j=0; j<(2*i)+3; j++) {
+            // 별
+            for (int j = 0; j < maxStar - 2 * i; j++) {
                 System.out.print("* ");
             }
-
             System.out.println();
         }
-
-
     }
 }
-
-// 별 공백
-// 7  0
-// 5  1
-// 3  2
-// 1  3
-// -----
-// 3  2
-// 5  1
-// 7  0
