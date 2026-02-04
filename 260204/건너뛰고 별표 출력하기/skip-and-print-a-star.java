@@ -1,29 +1,26 @@
 import java.io.*;
-import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(br.readLine());
 
-        int n = Integer.parseInt(st.nextToken());
-
-        for (int i=1; i<=5; i++) {
-            for (int j=0; j<i; j++) {
-                System.out.print("*"); 
-            }
-            System.out.println();
-            if (i != 1) System.out.println();
-        }
-
-        for (int i=n; i>=1; i--) {
-            for (int j=0; j<i-1; j++) {
+        // 증가
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j < i; j++) {
                 System.out.print("*");
             }
             System.out.println();
-            if (i != 1) System.out.println();
+            System.out.println();
         }
 
-
+        // 감소
+        for (int i = n - 1; i >= 1; i--) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+            if (i != 1) System.out.println(); // 마지막 줄 뒤 빈 줄 제거
+        }
     }
 }
