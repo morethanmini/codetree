@@ -1,26 +1,28 @@
-import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] arr = br.readLine().split(" ");
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
         int sum = 0;
         int count = 0;
 
-        for (int i = 0; i < arr.length; i++) {
-            int value = Integer.parseInt(arr[i]);
+        // 최대 10개의 정수 처리
+        for (int i = 0; i < 10; i++) {
+            int n = sc.nextInt();
 
-            if (value >= 250) {
+            // 250 이상이 나오면 마지막 수는 제외하고 종료
+            if (n >= 250) {
                 break;
             }
 
-            sum += value;
+            sum += n;
             count++;
         }
 
-        double avg = (count == 0) ? 0 : (double) sum / count;
-        System.out.println(sum + " " + avg);
+        // 평균 계산
+        double average = (count > 0) ? (double) sum / count : 0.0;
+
+        System.out.println(sum + " " + average);
     }
 }
