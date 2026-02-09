@@ -18,10 +18,10 @@ public class Main {
         double avg = sum / N;
 
         if (avg >= 4.0)
-            System.out.println("Perfect");
+            System.out.printf("%.1f\nPerfect", avg);
         else if (avg >= 3.0)
-            System.out.println("Good");
+            System.out.printf("%.1f\nGood", avg);
         else
-            System.out.println("Poor");
+            System.out.printf("%.1f\nPoor", avg);
     }
 }
