@@ -12,7 +12,7 @@ public class Main {
             int value = Integer.parseInt(st.nextToken());
 
             if (value%2==0) {
-                System.out.println(value + " ");
+                System.out.print(value + " ");
             }
         }
 
