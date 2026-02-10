@@ -15,17 +15,15 @@ public class Main {
         for (int i=0; i<N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
 
-            if (cnt == 3) {
-                System.out.println(i);
-                break;
-            }
-
             if (arr[i] == 2) {
                 cnt++;
+
+                if (cnt == 3) {
+                System.out.println(i+1);
+                }
+
             }
 
-            
-        
         }
     }
 }
