@@ -2,37 +2,43 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
 
-        int[][] arr1 = new int[3][3];
-        int num1 = 1;
+        int[][] a = new int[3][3];
+        int[][] b = new int[3][3];
 
-        // arr1 채우기
+        // 첫 번째 3x3 입력
         for (int i = 0; i < 3; i++) {
+            st = new StringTokenizer(br.readLine());
             for (int j = 0; j < 3; j++) {
-                arr1[i][j] = num1++;
+                a[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        int[][] arr2 = new int[3][3];
-        int num2 = 2;
+        // 빈 줄 하나 소비
+        br.readLine();
 
-        // arr2 채우기
+        // 두 번째 3x3 입력
         for (int i = 0; i < 3; i++) {
+            st = new StringTokenizer(br.readLine());
             for (int j = 0; j < 3; j++) {
-                arr2[i][j] = num2++;
+                b[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        int[][] arr3 = new int[3][3];
+        int[][] v = new int[3][3];
 
-        // 원소별 곱(element-wise multiplication)
+        // 원소별 곱 출력
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                arr3[i][j] = arr1[i][j] * arr2[i][j];
-                System.out.print(arr3[i][j] + " ");
+                v[i][j] = a[i][j] * b[i][j];
+                
+                System.out.print(v[i][j] + " ");
             }
             System.out.println();
         }
+
     }
 }
