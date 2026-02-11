@@ -8,17 +8,16 @@ public class Main {
 
         int[][] arr = new int[N][N];
 
-        for (int i=0; i<N; i++) {
-            for (int j=0; j<1; j++) {
-                arr[i][j] = 1;
-            }
+        // 기본값 세팅
+        for (int i = 0; i < N; i++) {
+            arr[i][0] = 1;
+            arr[i][i] = 1;
         }
-        arr[1][1] = 1;
 
 
         // 2. 규칙
-        for (int i=1; i<N; i++) {
-            for (int j=1; j<N; j++) {
+        for (int i=2; i<N; i++) {
+            for (int j=1; j<i; j++) {
                 arr[i][j] = arr[i-1][j-1] + arr[i-1][j];
             }
         }
