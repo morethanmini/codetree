@@ -8,7 +8,7 @@ public class Main {
 
         List<String> lst = new ArrayList<>();
 
-        for (int i=0; i<4; i++) {
+        for (int i=0; i<N; i++) {
             lst.add(br.readLine());
         }
 
@@ -17,7 +17,7 @@ public class Main {
         int sum = 0;
         double avg = 0;
 
-        for (int i=0; i<4; i++) {
+        for (int i=0; i<N; i++) {
             if (lst.get(i).charAt(0) == c) {
                 cnt++;
                 sum += lst.get(i).length();
