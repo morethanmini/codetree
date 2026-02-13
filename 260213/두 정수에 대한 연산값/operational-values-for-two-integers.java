@@ -3,27 +3,23 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         int a = sc.nextInt();
         int b = sc.nextInt();
-        // Please write your code here.
-        System.out.println(answer(a, b));
+
+        int[] result = answer(a, b);
+
+        System.out.println(result[0] + " " + result[1]);
     }
 
-    public static String answer(int a, int b) {
-        List<Integer> lst = new ArrayList<>();
-        lst.add(a);
-        lst.add(b);
+    public static int[] answer(int a, int b) {
 
-        Collections.sort(lst);
+        int small = Math.min(a, b);
+        int large = Math.max(a, b);
 
-        int x = lst.get(0) * 2;
-        int y = lst.get(1) + 25;
+        small = small * 2;
+        large = large + 25;
 
-
-        if (x > y) {
-            return y + " " + x;
-        }
-
-        return x + " " + y;
+        return new int[]{small, large};
     }
 }
