@@ -19,6 +19,11 @@ public class Main {
         int x = lst.get(0) * 2;
         int y = lst.get(1) + 25;
 
+
+        if (x > y) {
+            return y + " " + x;
+        }
+
         return x + " " + y;
     }
 }
