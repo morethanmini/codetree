@@ -14,12 +14,14 @@ public class Main {
 
     public static int[] answer(int a, int b) {
 
-        int small = Math.min(a, b);
-        int large = Math.max(a, b);
+        if (a > b) {
+            a = a + 25;
+            b = b * 2;
+        } else {
+            a = a * 2;
+            b = b + 25;
+        }
 
-        small = small * 2;
-        large = large + 25;
-
-        return new int[]{small, large};
+        return new int[]{a, b};
     }
 }
