@@ -17,8 +17,8 @@ public class Main {
 
         Box b = new Box();
 
-        b.id = "hello";
-        b.level = 28;
+        b.id = id;
+        b.level = level;
 
         System.out.println("user " + b.id + " lv " + b.level);
     }
