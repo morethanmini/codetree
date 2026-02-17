@@ -15,6 +15,11 @@ public class Main {
             n = n * A + (arr[i] - '0');
         }
 
+        if (n == 0) {
+            System.out.print(0);
+            return;
+        }
+
         List<Integer> lst = new ArrayList<>();
         while (true) {
             if (n<2) {
