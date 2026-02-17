@@ -6,32 +6,30 @@ public class Main {
         int A = sc.nextInt();
         int B = sc.nextInt();
         String N = sc.next();
-        // Please write your code here.
 
+        // 1단계: A진수 → 10진수 변환
         char[] arr = N.toCharArray();
-        int n = 0;
+        int decimal = 0;
 
-        for (int i=0; i<arr.length; i++) {
-            n = n * A + (arr[i] - '0');
+        for (int i = 0; i < arr.length; i++) {
+            decimal = decimal * A + (arr[i] - '0');
         }
 
-        if (n == 0) {
+        // 2단계: 10진수 → B진수 변환
+        if (decimal == 0) {
             System.out.print(0);
             return;
         }
 
         List<Integer> lst = new ArrayList<>();
-        while (true) {
-            if (n<2) {
-                lst.add(n);
-                break;
-            }
 
-            lst.add(n%B);
-            n /= B;
+        while (decimal > 0) {
+            lst.add(decimal % B);
+            decimal /= B;
         }
 
-        for (int i=lst.size()-1; i>=0; i--) {
+        // 역순 출력
+        for (int i = lst.size() - 1; i >= 0; i--) {
             System.out.print(lst.get(i));
         }
     }
