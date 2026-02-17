@@ -26,8 +26,8 @@ public class Main {
             n /= B;
         }
 
-        for (Integer i : lst) {
-            System.out.print(i);
+        for (int i=lst.size()-1; i>=0; i--) {
+            System.out.print(lst.get(i));
         }
     }
 }
