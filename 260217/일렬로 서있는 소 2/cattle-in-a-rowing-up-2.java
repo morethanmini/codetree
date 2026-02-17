@@ -9,7 +9,7 @@ public class Main {
             arr[i] = sc.nextInt();
         // Please write your code here.
 
-        int cnt = 0;
+        long cnt = 0;
 
         for (int i=0; i<n; i++) {
             for (int j=i+1; j<n; j++) {
