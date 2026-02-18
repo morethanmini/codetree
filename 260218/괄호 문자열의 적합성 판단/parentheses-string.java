@@ -14,7 +14,9 @@ public class Main {
             }
 
             if (str.charAt(i) == ')') {
-                stack.pop();
+                if (!stack.isEmpty()) {
+                    stack.pop();
+                }
             }
         }
 
