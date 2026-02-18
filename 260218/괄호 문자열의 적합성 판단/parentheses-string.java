@@ -7,20 +7,23 @@ public class Main {
         // Please write your code here.
 
         Stack<Character> stack = new Stack<>();
+        boolean flag = true;
 
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == '(') {
-                stack.push(str.charAt(i));
+                stack.push('(');
             }
 
             if (str.charAt(i) == ')') {
-                if (!stack.isEmpty()) {
-                    stack.pop();
+                if (stack.isEmpty()) {
+                    flag = false;
+                    break;
                 }
+                stack.pop();
             }
         }
 
-        if (stack.isEmpty()) {
+        if (flag && stack.isEmpty()) {
             System.out.println("Yes");
         } else System.out.println("No");
 
