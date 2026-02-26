@@ -3,30 +3,32 @@ import java.io.*;
 
 public class Main {
     public static int n, m;
-    public static int[][] grid;
-    public static boolean[][] visited;
-    public static boolean canReach = false;
+    public static final int MAX_NUM = 100;
 
-    static int[] dx = {1, 0};
-    static int[] dy = {0, 1};
+    public static int[][] grid = new int[MAX_NUM][MAX_NUM];
+    public static int[][] visited = new int[MAX_NUM][MAX_NUM];
 
     public static boolean inRange(int x, int y) {
         return 0 <= x && x < n && 0 <= y && y < m;
     }
 
-    public static void DFS(int x, int y) {
-        if (x == n - 1 && y == m - 1) {
-            canReach = true;
-            return;
-        }
+    public static boolean run(int x, int y) {
+        if (!inRange(x, y)) return false;
+        if (visited[x][y] == 1 || grid[x][y] == 0) return false;
+        return true;
+    }
 
-        visited[x][y] = true;
+    public static void DFS(int x, int y) {
+        int[] dx = {1, 0};
+        int[] dy = {0, 1};
+
+        visited[x][y] = 1;
 
         for (int i = 0; i < 2; i++) {
             int nx = x + dx[i];
             int ny = y + dy[i];
 
-            if (inRange(nx, ny) && !visited[nx][ny] && grid[nx][ny] == 1) {
+            if (run(nx, ny)) {
                 DFS(nx, ny);
             }
         }
@@ -40,9 +42,6 @@ public class Main {
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
 
-        grid = new int[n][m];
-        visited = new boolean[n][m];
-
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < m; j++) {
@@ -50,10 +49,9 @@ public class Main {
             }
         }
 
-        if (grid[0][0] == 1) {
-            DFS(0, 0);
-        }
+        visited[0][0] = 1;
+        DFS(0, 0);
 
-        System.out.println(canReach ? 1 : 0);
+        System.out.println(visited[n-1][m-1]);
     }
 }
