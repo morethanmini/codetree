@@ -3,18 +3,18 @@ import java.util.*;
 
 public class Main {
 
-    public static int n, m;
-    public static int[][] grid;
-    public static boolean[][] visited;
+    static int n, m;
+    static int[][] grid;
+    static boolean[][] visited;
 
-    public static int[] dx = {-1, 1, 0, 0};
-    public static int[] dy = {0, 0, -1, 1};
+    static int[] dx = {-1, 1, 0, 0};
+    static int[] dy = {0, 0, -1, 1};
 
-    public static boolean inRange(int x, int y) {
+    static boolean inRange(int x, int y) {
         return x >= 0 && x < n && y >= 0 && y < m;
     }
 
-    public static void dfs(int x, int y, int rainHeight) {
+    static void dfs(int x, int y, int rainHeight) {
         visited[x][y] = true;
 
         for (int i = 0; i < 4; i++) {
@@ -52,8 +52,7 @@ public class Main {
         int maxSafeAreaCount = 0;
         int bestRainHeight = 0;
 
-        // 비 높이를 1부터 최대 높이까지 탐색
-        for (int rain = 1; rain <= maxHeight; rain++) {
+        for (int rain = 0; rain <= maxHeight; rain++) {
 
             visited = new boolean[n][m];
             int safeAreaCount = 0;
@@ -68,7 +67,7 @@ public class Main {
                 }
             }
 
-            if (safeAreaCount > maxSafeAreaCount) {
+            if (safeAreaCount >= maxSafeAreaCount) {
                 maxSafeAreaCount = safeAreaCount;
                 bestRainHeight = rain;
             }
