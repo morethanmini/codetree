@@ -14,6 +14,12 @@ public class Main {
         return 0 <= x && x < n && 0 <= y && y < n;
     }
 
+    public static boolean canGo(int x, int y) {
+        return inRange(x, y) &&
+            !visited[x][y] &&
+            grid[x][y] == 1;
+    }
+
     public static int DFS(int x, int y) {
         visited[x][y] = true;
         int count = 1;   // 현재 칸 포함
@@ -22,10 +28,7 @@ public class Main {
             int nx = x + dx[i];
             int ny = y + dy[i];
 
-            if (inRange(nx, ny) && 
-                !visited[nx][ny] && 
-                grid[nx][ny] == 1) {
-
+            if (canGo(nx, ny)) {
                 count += DFS(nx, ny);
             }
         }
