@@ -73,6 +73,9 @@ public class Main {
 
         bfs();
 
-        System.out.println(dist[n - 1][m - 1]);
+        if (visited[n - 1][m - 1])
+            System.out.println(dist[n - 1][m - 1]);
+        else
+            System.out.println(-1);
     }
 }
